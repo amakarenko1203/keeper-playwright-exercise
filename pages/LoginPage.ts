@@ -20,7 +20,7 @@ export class LoginPage {
   }
 
   async goto() {
-    await this.page.goto('/index.htm');
+    await this.page.goto('/parabank/index.htm');
   }
 
   async login(username: string, password: string) {

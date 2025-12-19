@@ -36,7 +36,7 @@ export class RegisterPage {
   }
 
   async goto() {
-    await this.page.goto('/register.htm');
+    await this.page.goto('/parabank/register.htm');
   }
 
   async register(userData: {
@@ -62,6 +62,9 @@ export class RegisterPage {
     await this.usernameInput.fill(userData.username);
     await this.passwordInput.fill(userData.password);
     await this.confirmPasswordInput.fill(userData.password);
-    await this.registerButton.click();
+    await Promise.all([
+      this.page.waitForLoadState('networkidle'),
+      this.registerButton.click()
+    ]);
   }
 }

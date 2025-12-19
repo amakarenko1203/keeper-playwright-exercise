@@ -20,7 +20,7 @@ export class TransferFundsPage {
   }
 
   async goto() {
-    await this.page.goto('/transfer.htm');
+    await this.page.goto('/parabank/transfer.htm');
   }
 
   async transferFunds(amount: string, fromAccount?: string, toAccount?: string) {
